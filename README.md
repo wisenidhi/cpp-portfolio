@@ -1,2 +1,21 @@
-# cpp-portfolio
-Portfolio for C++ course assignments
+# Corner Grocer Item Tracking Program
+
+## Project Summary
+This program helps the Corner Grocer store track how often each item is purchased. It reads grocery item names from an input file and counts how many times each one appears. I built an ItemTracker class that uses a map to store items and their counts. The program loads the data, converts everything to lowercase so items like "Spinach" and "spinach" get counted together, and saves a backup file with all the results. Users can search for how many times a specific item was purchased, see the full list, look at a histogram made with asterisks, or exit.
+
+## Reflection
+
+### What did you do particularly well?
+I think organizing everything into a class worked out really well. It kept all the tracking stuff in one place instead of having functions scattered everywhere. I made sure to add comments because I've gone back to old code before and had no idea what I was thinking. The input validation for the menu took some extra time but was worth it because the program doesn't crash anymore when someone types in letters by mistake. I'm also happy with how the map handles everything automatically. I wasn't sure about using it at first but it made counting duplicates way easier than if I'd tried to do it manually with arrays or something.
+
+### Where could you enhance your code?
+The error messages aren't great. When the file doesn't open, it just says there's an error but doesn't really help the user figure out what's wrong. I should probably check if the file actually exists first and tell them where to put it. I also hardcoded the filename which seems like a bad idea now because anyone wanting to use a different file would have to go into the code and change it. Maybe I could ask the user to type in the filename instead. The histogram could be a problem if an item appears like 100 times because it would just print a really long line of asterisks across the screen. I'm not totally sure how to fix that yet but maybe limiting how many asterisks show up or breaking it into multiple lines would help.
+
+### What pieces of code did you find most challenging?
+The file stuff was harder than I expected. I kept forgetting to check if the file opened correctly and my program would crash. Once I learned about the is_open() function things got better. The map was confusing at first, especially the part where you loop through it with that auto keyword. I had to look up what entry.first and entry.second meant because the syntax didn't make sense to me right away. The lambda function for making everything lowercase was probably the most confusing thing in the whole project. I found it in an example online but didn't understand what it was doing at all. I watched a couple YouTube videos and read some stuff on cppreference.com and eventually it started to make sense. I wish the course had covered lambdas a bit more because they seem useful but they're kind of hard to wrap your head around.
+
+### What skills are transferable to other projects?
+Reading and writing files is definitely something I'll need again. Pretty much every program needs to save data somewhere. The map thing will be useful too, I can already think of other times where you'd want to match up keys and values like this. Building a class and splitting things into different functions is good practice for keeping code organized. I learned that the hard way on earlier projects where everything was just in main() and it was a mess. The input validation will come in handy because users do weird stuff and you have to plan for that. I also got better at reading documentation and finding answers online when I got stuck, which is probably one of the most important skills honestly.
+
+### How did you make this program maintainable, readable, and adaptable?
+I tried to name things clearly so you can tell what they do without having to read through all the code. Like printHistogram() is obvious but something like doStuff() would be terrible. I put comments above each function explaining what it does. I know some people say good code doesn't need comments but I disagree, comments have saved me multiple times. Each function does one specific thing which I learned is important for keeping code organized. The loadData() function just loads data and doesn't try to also print it or calculate things. Using const on functions that don't change anything was something I picked up from class and it seems like a good habit. The class setup means I could add more features later if needed without having to redo everything. It's not perfect but it's a lot better than my earlier projects where everything was just thrown together.
